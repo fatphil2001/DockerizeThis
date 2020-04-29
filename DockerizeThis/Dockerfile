@@ -1,13 +1,16 @@
-FROM microsoft/aspnetcore-build:2.0 AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
-# copy csproj and restore as distinct layers
+
+# Copy csproj and restore as distinct layers
 COPY *.csproj ./
 RUN dotnet restore
-# copy everything else and build
+
+# Copy everything else and build
 COPY . ./
 RUN dotnet publish -c Release -o out
-# build runtime image
-FROM microsoft/aspnetcore:2.0
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 80/tcp
