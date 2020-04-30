@@ -23,7 +23,7 @@ namespace DockerizeThis2.Controllers
 
             //Path where you want to save the uploaded file.
             //Hardcoded for now, since all docker images should be using the same directory.
-            var filePath = @"/ws_persist";
+            var filePath = @"/app/ws_persist";
 
             //Should validate if directory above exists...
             foreach (var formFile in files)
