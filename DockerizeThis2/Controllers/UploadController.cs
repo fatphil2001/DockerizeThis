@@ -31,8 +31,10 @@ namespace DockerizeThis2.Controllers
                 if (formFile.Length > 0)
                 {
                         //Upload file to directory with same filename.
-                        using (var stream = new FileStream(Path.Combine(filePath, "test.txt"), FileMode.Create))
-//                        using (var stream = new FileStream(Path.Combine(filePath, formFile.FileName), FileMode.Create))
+                        DateTime now = DateTime.Now;
+                        string filename = String.Format($"{now:HH-mm-ss}.txt");
+                        using (var stream = new FileStream(Path.Combine(filePath, filename), FileMode.Create))
+//                    using (var stream = new FileStream(Path.Combine(filePath, formFile.FileName), FileMode.Create))
 //                    using (var stream = new FileStream(@"c:\temp\test.txt", FileMode.Create))
                     {
                         await formFile.CopyToAsync(stream);
