@@ -1,5 +1,7 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
+# This solution level file can't be used by the docker tools in visual studio, a new Dockerfile created directly in project folder, with corrected paths.
+
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
