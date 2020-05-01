@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>8cf7a3a1-3a1b-4dd2-bcb3-de0f97067094</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileRunArguments>--mount source=ws_persist,target=/app/ws_persist</DockerfileRunArguments>
     <OutputType>Exe</OutputType>
     <StartupObject></StartupObject>
   </PropertyGroup>
